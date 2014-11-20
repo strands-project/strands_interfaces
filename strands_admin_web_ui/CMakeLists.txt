@@ -8,7 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   twitter_bootstrap
   strands_webtools
   dynamic_reconfigure
-  std_msgs message_generation
+  std_msgs 
 )
 
 ## System dependencies are found with CMake's conventions
@@ -45,10 +45,10 @@ catkin_python_setup()
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 # Generate messages in the 'msg' folder
-add_message_files(
-  FILES
-  DemoStats.msg
-)
+#add_message_files(
+#  FILES
+#  DemoStats.msg
+#)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -63,17 +63,6 @@ add_message_files(
 #   Action1.action
 #   Action2.action
 # )
-
-## Generate added messages and services with any dependencies listed here
-generate_messages(
-  DEPENDENCIES
-  std_msgs  
-)
-
-#add dynamic reconfigure api
-generate_dynamic_reconfigure_options(
-  cfg/ChargingThresholds.cfg
-)
 
 # make sure configure headers are built before any node using them
 # add_dependencies(example_node ${PROJECT_NAME}_gencfg)
