@@ -11,7 +11,7 @@ import strands_webserver.client_utils
 import strands_webserver.page_utils
 from std_srvs.srv import Empty
 from mongodb_store.message_store import MessageStoreProxy
-from strands_navigation_msgs.msg import TopologicalNode
+#from strands_navigation_msgs.msg import TopologicalNode
 
 from task_executor import task_query
 
