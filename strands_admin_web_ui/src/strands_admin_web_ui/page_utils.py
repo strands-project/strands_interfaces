@@ -21,6 +21,7 @@ def generate_interface_page(file_name, left = "", right = "", script = ""):
     """ Create a page by rendering the strands_admin_web_ui/templates/index.html using web.py and place it at strands_admin_web_ui/www/ """
 
     full_path = www_prefix + file_name
+    rospy.loginfo('generate page %s' % full_path)
 
     try:
         os.makedirs(os.path.dirname(full_path))
@@ -48,10 +49,6 @@ def get_video_display(element="bottom_right"):
 def get_task_event_display(element="#left_div"):
     """ Generate the javascript to be which displays task event details  in the named div element. """
     return str(render.task_event_display(element))
-
-def get_demo_stats_display(element="#right_div"):
-    """ Generate the javascript to be which displays task event details  in the named div element. """
-    return str(render.demo_stats_display(element))
 
 def get_service_button(button_text, service):
     """ Generate a button that calls the std_srvs/Empty service when pressed """

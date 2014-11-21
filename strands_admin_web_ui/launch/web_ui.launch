@@ -2,9 +2,8 @@
         <include ns="external_display" file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
         <node pkg="strands_webserver" type="strands_webserver" name="strands_admin_web_ui_server" >
                 <param name="port" value="9091" />
-                <!-- <param name="host_ip" value="10.0.0.32" />-->
         </node>
-        <node pkg="strands_admin_web_ui" type="strands_admin_web_ui_node.py" name="strands_admin_web_ui_node" />
+        <node pkg="strands_admin_web_ui" type="strands_admin_web_ui_node.py" name="strands_admin_web_ui_node" output="screen"/>
         <node pkg="mjpeg_server" type="mjpeg_server" name="external_mjpeg_server">
                 <param name="port" value="8181" />
         </node>

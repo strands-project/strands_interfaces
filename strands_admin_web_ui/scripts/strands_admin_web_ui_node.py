@@ -27,22 +27,23 @@ if __name__ == '__main__':
     else:
         rospy.loginfo('writing to display: %s', display_no)
 
-    prefix='stats'
-
+    prefix='strands_admin_web_ui_server'
+    
     # Setup -- must be done before other strands_admin_web_ui calls
     # serves pages relative to strands_admin_web_ui/www -- this is important as there as some javascript files there
     strands_webserver.client_utils.set_http_root(roslib.packages.get_pkg_dir('strands_admin_web_ui') + '/www', prefix=prefix)
+    rospy.loginfo('root set')
 
     page = 'index.html'
 
     right_div = '<div id="top_right_div"></div><div id="bottom_right_div"></div>'
     script = strands_admin_web_ui.page_utils.get_schedule_display("#bottom_right_div")
     script += strands_admin_web_ui.page_utils.get_task_event_display("#top_right_div")
-    script += strands_admin_web_ui.page_utils.get_demo_stats_display("#left_div")
     script += strands_admin_web_ui.page_utils.get_map_display("bottom_left")
     script += strands_admin_web_ui.page_utils.get_video_display("bottom_right")
 
     strands_admin_web_ui.page_utils.generate_interface_page(page, right=right_div, script=script)
+    rospy.loginfo('page generated')
 
     strands_webserver.client_utils.display_relative_page(display_no, page, prefix=prefix)
     rospy.spin()
